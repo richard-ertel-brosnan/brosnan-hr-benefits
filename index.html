@@ -162,6 +162,15 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+    // Hide header if ?unbranded=1 is in the query string
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('unbranded') === '1') {
+      ['header', 'footer'].forEach(sel => {
+        const el = document.querySelector(sel);
+        if (el) el.style.display = 'none';
+      });
+    }
+    
   </script>
 </body>
 </html>
